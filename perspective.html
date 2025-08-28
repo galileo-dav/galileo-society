@@ -52,16 +52,16 @@
           <li class="dropdown">
             <a href="events.html">Sự kiện</a>
              <ul class="dropdown-menu anim-fade">
-              <li><a href="">Đối thoại toàn cầu Galileo</a></li>
-              <li><a href="">Diplomacy Game</a></li>
-              <li><a href="">Hội nghị Mô phỏng
-              <li><a href="">Cuộc thi Sinh viên nghiên cứu khoa học</a></li>
-              <li><a href="">Hoạt động nghiên cứu, xuất bản của Hội viên</a></li>
-              <li><a href="">Sự kiện khác</a></li>
+              <li><a href="global_dialogue.html">Đối thoại toàn cầu Galileo</a></li>
+              <li><a href="diplomacy_game.html">Diplomacy Game</a></li>
+              <li><a href="simulation.html">Hội nghị Mô phỏng
+              <li><a href="research_comp.html">Cuộc thi Sinh viên nghiên cứu khoa học</a></li>
+              <li><a href="publish.html">Hoạt động nghiên cứu, xuất bản của Hội viên</a></li>
+              <li><a href="other_events">Sự kiện khác</a></li>
             </ul>
           </li>
-          <li><a href="#galileans">Galileans</a></li>
-          <li><a href="#readers">Liên hệ</a></li>
+          <li><a href="galileans.html">Galileans</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
           <li class="search">
             <button class="icon-btn" aria-label="Tìm kiếm">
               <img src="images/icon-13.svg" width="20" height="20" alt="Tìm kiếm">
@@ -101,7 +101,8 @@
     loadPosts("article/perspective/perspective.json", null); // ví dụ lấy 4 bài mới nhất
   });
     </script>
- <!-- NEWSLETTER / READERS -->
+<!-- NEWSLETTER / READERS -->
+    <!-- NEWSLETTER / READERS -->
     <section id="readers" class="section section--alt">
       <div class="container newsletter">
         <div class="newsletter__text anim-up">
@@ -128,6 +129,14 @@
             <li>Email: <a href="mailto:galileo.dav@gmail.com">galileo.dav@gmail.com</a></li>
             <li>Địa chỉ: 69 Chùa Láng, phường Láng, Hà Nội</li>
             <li>Hotline: 0971230728 (Quỳnh Trang), 0829084858 (Bảo Uyên)</li>
+            <li>
+              <div class="social-icons">
+                <a href="mailto:galileo.dav@gmail.com"><img src="images/gmail.svg" alt="Gmail"></a>
+                <a href="https://www.linkedin.com/company/galileosociety/" target="_blank"><img src="images/linkedin.svg" alt="LinkedIn"></a>
+                <a href="https://www.facebook.com/galileosociety.dav" target="_blank"><img src="images/facebook.svg" alt="Facebook"></a>
+                <a href="https://www.instagram.com/galileuleu2309/" target="_blank"><img src="images/instagram.svg" alt="Instagram"></a>
+      </div>
+            </li>
           </ul>
         </div>
         <div class="cta-card anim-up">
@@ -199,8 +208,35 @@
 
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+
+      
+    // Parallax effect for hero
+    function updateHeroParallax() {
+    const hero = document.querySelector('.hero');
+    const parallaxElement = document.querySelector('.hero__parallax');
   
+    if (!hero || !parallaxElement) return;
+  
+    const rect = hero.getBoundingClientRect();
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.3; // tốc độ parallax (âm = di chuyển ngược)
+  
+    // Chỉ áp dụng khi hero còn trong viewport
+    if (rect.bottom >= 0) {
+      parallaxElement.style.transform = `translateY(${rate}px)`;
+  }
+}
+
+// Gắn event listener
+window.addEventListener('scroll', updateHeroParallax, { passive: true });
+window.addEventListener('load', updateHeroParallax);
+window.addEventListener('resize', updateHeroParallax);
+
+
+</script>
+
+
+
+
 </body>
 </html>
-
