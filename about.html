@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>GALILEO Society – Học viện Ngoại giao</title>
+  <title>Galileo Society – Học viện Ngoại giao</title>
   <meta name="description" content="CLB nghiên cứu khoa học sinh viên DAV: bài viết, sự kiện, hoạt động nổi bật." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="icon" type="image/png" href="images/logo-galileo-1-3.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
@@ -111,6 +112,8 @@
     
      <!-- NEWSLETTER / READERS -->
     <!-- NEWSLETTER / READERS -->
+    <footer class="site-footer">
+
     <section id="readers" class="section section--alt">
       <div class="container newsletter">
         <div class="newsletter__text anim-up">
@@ -118,7 +121,7 @@
           <p>Nhập email của bạn để không bỏ lỡ bài viết và sự kiện.</p>
         </div>
         <form class="newsletter__form anim-up" id="newsletterForm" novalidate>
-          <label for="email" class="sr-only">Email</label>
+          <label for="email" class="sr-only"></label>
           <input id="email" name="email" type="email" placeholder="Email của bạn" required>
           <button class="btn btn-primary" type="submit">Đăng ký</button>
           <p class="form-msg" id="formMsg" role="status" aria-live="polite"></p>
@@ -154,8 +157,6 @@
       </div>
     </section>
   </main>
-
-  <footer class="site-footer">
     <div class="container footer__inner">
       <p>© <span id="year"></span> Galileo Society</p>
       <div class="social">
@@ -216,6 +217,29 @@
 
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+      
+    // Parallax effect for hero
+    function updateHeroParallax() {
+    const hero = document.querySelector('.hero');
+    const parallaxElement = document.querySelector('.hero__parallax');
+  
+    if (!hero || !parallaxElement) return;
+  
+    const rect = hero.getBoundingClientRect();
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * -0.3; // tốc độ parallax (âm = di chuyển ngược)
+  
+    // Chỉ áp dụng khi hero còn trong viewport
+    if (rect.bottom >= 0) {
+      parallaxElement.style.transform = `translateY(${rate}px)`;
+  }
+}
+
+// Gắn event listener
+window.addEventListener('scroll', updateHeroParallax, { passive: true });
+window.addEventListener('load', updateHeroParallax);
+window.addEventListener('resize', updateHeroParallax);
 
 
 </script>
