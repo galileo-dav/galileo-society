@@ -1,14 +1,14 @@
 
-function loadPosts(jsonFile, limit = null) {
+function loadEvents(jsonFile, limit = null) {
   fetch(jsonFile)
     .then(res => res.json())
     .then(data => {
       data.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-      const container = document.getElementById("posts-container");
+      const container = document.getElementById("events-container");
       container.innerHTML = `
         <div class="container">
-          <h2 class="section-title text-center">BÀI VIẾT MỚI NHẤT</h2>
+          <h2 class="section-title text-center">SỰ KIỆN MỚI NHẤT</h2>
           <div class="posts-grid"></div>
         </div>
       `;

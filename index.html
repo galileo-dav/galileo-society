@@ -15,11 +15,9 @@
     html{scroll-behavior:smooth}
     body{font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
   </style>
+  <script src="layout.js"></script>
 </head>
 <body>
-  <!-- Skip link for accessibility -->
-  <a class="skip-link" href="#main">Bỏ qua nội dung điều hướng</a>
-
   <header class="site-header" id="top">
     <div class="container header-bar">
       <a class="brand" href="index.html" aria-label="Trang chủ GALILEO">
@@ -55,23 +53,26 @@
              <ul class="dropdown-menu anim-fade">
               <li><a href="global_dialogue.html">Đối thoại toàn cầu Galileo</a></li>
               <li><a href="diplomacy_game.html">Diplomacy Game</a></li>
-              <li><a href="simulation.html">Hội nghị Mô phỏng
+              <li><a href="simulation.html">Hội nghị Mô phỏng</a></li>
               <li><a href="research_comp.html">Cuộc thi Sinh viên nghiên cứu khoa học</a></li>
-              <li><a href="publish.html">Hoạt động nghiên cứu, xuất bản của Hội viên</a></li>
-              <li><a href="other_events">Sự kiện khác</a></li>
+              <li><a href="publish.html">Hoạt động nghiên cứu của Hội viên</a></li>
+              <li><a href="other_events.html">Sự kiện khác</a></li>
             </ul>
           </li>
-          <li><a href="galileans.html">Galileans</a></li>
-          <li><a href="contact.html">Liên hệ</a></li>
-          <li class="search">
-            <button class="icon-btn" aria-label="Tìm kiếm">
-              <img src="images/icon-13.svg" width="20" height="20" alt="Tìm kiếm">
-            </button>
+          <li class="dropdown">
+            <a href="galileans.html">Galileans</a>
+             <ul class="dropdown-menu anim-fade">
+              <li><a href="#top">Nhiệm kỳ 2024-2025</a></li>
+            </ul>
           </li>
+          <li><a href="contact.html">Liên hệ</a></li>
         </ul>
       </nav>
     </div>
   </header>
+  <!-- Skip link for accessibility -->
+  <a class="skip-link" href="#main">Bỏ qua nội dung điều hướng</a>
+
 
   <main id="main">
     <!-- HERO -->
@@ -116,19 +117,27 @@
     loadPosts("posts.json", null); // ví dụ lấy 4 bài mới nhất
   });
     </script>
+
+    <!-- LATEST EVENTS -->
+    <section id="events-container" class="posts">
+    </section>
+    <script src = "script_events.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+    loadEvents("events.json", null); // ví dụ lấy 4 bài mới nhất
+  });
+    </script>
     
 
     <!-- NEWSLETTER / READERS -->
     <!-- NEWSLETTER / READERS -->
-    
-
-  <footer class="site-footer">
+     <footer class="site-footer">
 
     <section id="readers" class="section section--alt">
       <div class="container newsletter">
         <div class="newsletter__text anim-up">
           <h2>Nhận thông báo mới nhất</h2>
-          <p>Nhập email của bạn để không bỏ lỡ bài viết và sự kiện.</p>
+          <p>Nhập email của bạn để không bỏ lỡ bài viết và sự kiện từ Galileo Society!</p>
         </div>
         <form class="newsletter__form anim-up" id="newsletterForm" novalidate>
           <label for="email" class="sr-only"></label>
@@ -161,7 +170,7 @@
           </ul>
         </div>
         <div class="cta-card anim-up">
-          <p>Cùng chúng tôi lan tỏa tri thức đến cộng đồng sinh viên yêu nghiên cứu.</p>
+          <p>Cùng chúng tôi lan tỏa tri thức đến cộng đồng sinh viên yêu thích nghiên cứu khoa học!</p>
           <a class="btn btn-primary" href="#top">Tìm hiểu thêm</a>
         </div>
       </div>
@@ -170,91 +179,14 @@
     <div class="container footer__inner">
       <p>© <span id="year"></span> Galileo Society</p>
       <div class="social">
-        <button class="icon-btn" aria-label="Thông báo">
-          <img src="images/icon-58.svg" width="20" height="20" alt="Thông báo">
-        </button>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Mobile nav toggle
-    const toggle = document.querySelector('.nav-toggle');
-    const links = document.getElementById('nav-links');
-    toggle.addEventListener('click', () => {
-      const expanded = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!expanded));
-      links.classList.toggle('is-open');
-      document.body.classList.toggle('nav-open');
-    });
-
-    // Newsletter form (demo)
-    const form = document.getElementById('newsletterForm');
-    const msg = document.getElementById('formMsg');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const email = form.email.value.trim();
-      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-        msg.textContent = 'Email chưa hợp lệ. Vui lòng kiểm tra.';
-        msg.className = 'form-msg is-error';
-        return;
-      }
-      msg.textContent = 'Đăng ký thành công! Cảm ơn bạn đã quan tâm 🎉';
-      msg.className = 'form-msg is-success';
-      form.reset();
-    });
-
-    // Scroll animations using IntersectionObserver
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){ entry.target.classList.add('in-view'); }
-      });
-    }, {threshold: 0.15});
-    document.querySelectorAll('.anim-up, .anim-fade').forEach(el => observer.observe(el));
-
-    // Parallax effect
-    const parallax = document.querySelector('.parallax');
-    const media = document.querySelector('.parallax__media');
-    function updateParallax(){
-      const rect = parallax.getBoundingClientRect();
-      const offset = rect.top * -0.2; // speed
-      media.style.transform = `translateY(${offset}px)`;
-      requestAnimationFrame(() => {});
-    }
-    document.addEventListener('scroll', updateParallax, {passive: true});
-    window.addEventListener('load', updateParallax);
-    window.addEventListener('resize', updateParallax);
-
-    // Year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-      
-    // Parallax effect for hero
-    function updateHeroParallax() {
-    const hero = document.querySelector('.hero');
-    const parallaxElement = document.querySelector('.hero__parallax');
-  
-    if (!hero || !parallaxElement) return;
-  
-    const rect = hero.getBoundingClientRect();
-    const scrolled = window.pageYOffset;
-    const rate = scrolled * -0.3; // tốc độ parallax (âm = di chuyển ngược)
-  
-    // Chỉ áp dụng khi hero còn trong viewport
-    if (rect.bottom >= 0) {
-      parallaxElement.style.transform = `translateY(${rate}px)`;
-  }
-}
-
-// Gắn event listener
-window.addEventListener('scroll', updateHeroParallax, { passive: true });
-window.addEventListener('load', updateHeroParallax);
-window.addEventListener('resize', updateHeroParallax);
 
 
-</script>
 
-
+<script src="script_ui.js"></script>
 
 
 </body>
