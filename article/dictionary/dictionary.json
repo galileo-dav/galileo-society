@@ -1,0 +1,44 @@
+[
+  {
+    "title": "NGOẠI GIAO TWITTER",
+    "date": "2025-01-22",
+    "content": "Ngoại giao qua mạng xã hội",
+    "image": "images/dictionary/twitter_dip.jpg",
+    "link": "article/dictionary/twitter_dip.html"
+  },
+  {
+    "title": "NGOẠI GIAO AN NINH LƯƠNG THỰC",
+    "date": "2025-02-14",
+    "content": "Ngoại giao qua mạng xã hội",
+    "image": "images/dictionary/food_security_dip.jpg",
+    "link": "article/dictionary/food_security_dip.html"
+  },
+  {
+    "title": "CHIẾN TRANH ỦY NHIỆM",
+    "date": "2025-02-27",
+    "content": "Ngoại giao qua mạng xã hội",
+    "image": "images/dictionary/proxy_war.jpg",
+    "link": "article/dictionary/proxy_war.html"
+  },
+  {
+    "title": "CHƯƠNG TRÌNH NGHỊ SỰ VỀ PHỤ NỮ, HÒA BÌNH VÀ AN NINH",
+    "date": "2025-03-08",
+    "content": "Ngoại giao qua mạng xã hội",
+    "image": "images/dictionary/women_peace_security.jpg",
+    "link": "article/dictionary/women_peace_security.html"
+  },
+ {
+    "title": "GOLDEN DOME",
+    "date": "2025-06-13",
+    "content": "Ngoại giao qua mạng xã hội",
+    "image": "images/dictionary/golden_dome.jpg",
+    "link": "article/dictionary/golden_dome.html"
+  },
+   {
+    "title": "FRIENDSHORING",
+    "date": "2025-08-02",
+    "content": "Ngoại giao qua mạng xã hội",
+    "image": "images/dictionary/friendshoring.jpg",
+    "link": "article/dictionary/friendshoring.html"
+  }
+]

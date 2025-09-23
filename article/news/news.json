@@ -1,0 +1,24 @@
+[
+  {
+    "title": "Điểm tin tuần 30/12/2024 - 05/01/2025",
+    "date": "2025-01-06",
+    "content": "tin nóng",
+    "image": "images/news/06-01-2025/1.jpg",
+    "link": "article/news/news_06-01-2025.html"
+  },
+  {
+    "title": "Điểm tin tuần 18-24/08/2025",
+    "date": "2025-08-25",
+    "content": "tin nóng",
+    "image": "images/news/25-08-2025/1.jpg",
+    "link": "article/news/news_25-08-2025.html"
+  },
+
+  {
+    "title": "Điểm tin tuần 11-17/08/2025",
+    "date": "2025-08-18",
+    "content": "tin nóng",
+    "image": "images/news/18-08-2025/1.png",
+    "link": "article/news/news_18-08-2025.html"
+  }
+]
