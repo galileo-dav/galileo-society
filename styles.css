@@ -549,3 +549,11 @@ position: absolute;
   height: auto;
   object-fit: cover;
 }
+
+.galilean_text{
+  text-align: center;
+  font-style: italic;
+  font-style: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
