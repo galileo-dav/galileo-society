@@ -550,6 +550,18 @@ position: absolute;
   object-fit: cover;
 }
 
+@media (max-width: 768px) {
+  .four_image_galileans {
+    grid-template-columns: repeat(2, 1fr); /* 2 ảnh mỗi hàng */
+  }
+}
+
+@media (max-width: 480px) {
+  .four_image_galileans {
+    grid-template-columns: 1fr; /* 1 ảnh mỗi hàng */
+  }
+}
+
 .galilean_text{
   text-align: center;
   font-style: italic;
